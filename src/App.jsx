@@ -3,10 +3,9 @@ import TaskCreatePage from "./components/TaskCreatePage";
 import TaskToDoPage from "./components/TaskToDoPage";
 
 // ДЛЯ ЗАПУСКА СЕРВЕРА (!)
-// Консоль в корне папки проекта (navyk-platform):
+// Консоль в корне папки проекта (nvk-edc):
 // 1) npm-install
-// 2) cd nvk-edc
-// 3) npm run dev
+// 2) npm run dev
 // В консоли появится localhost + port (!)
 
 function App() {
