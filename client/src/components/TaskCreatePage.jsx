@@ -8,7 +8,7 @@ function TaskCreatePage() {
   const [taskList, setTaskList] = useState([]);
   const [taskNumber, setTaskNumber] = useState(1);
   const [values, setValues] = useState({
-    tasks: [],
+    tasks: [],  
     title: "",
     courseName: "",
   });
@@ -59,9 +59,9 @@ function TaskCreatePage() {
             setValues({ ...values, courseName: e.target.value })
           }>
           <option value={" "}>-</option>
-          <option value={"Р-ОК-24"}>Основной курс</option>
-          <option value={"Р-УК-24"}>Углублённый курс</option>
-          <option value={"Р-ИК-24"}>Интенсивный курс</option>
+          <option value={"1"}>Основной курс</option>
+          <option value={"2"}>Углублённый курс</option>
+          <option value={"3"}>Интенсивный курс</option>
         </select>
 
         {/* временный отступ */}

@@ -24,22 +24,6 @@ function TaskDoPage() {
       .catch((err) => console.error(err));
   }, []);
 
-  // запрос количества доступных заданий
-  useEffect(() => {
-    fetch("http://localhost:3000/api/tasks/available/count")
-      .then((res) => res.json())
-      .then((res) => setTaskAvailableCount(res.count))
-      .catch((err) => console.error(err));
-  }, []);
-
-  // запрос количества выполненных заданий
-  useEffect(() => {
-    fetch("http://localhost:3000/api/tasks/completed/count")
-      .then((res) => res.json())
-      .then((res) => setTaskCompletedCount(res.count))
-      .catch((err) => console.error(err));
-  }, []);
-
   // запрос списка доступных заданий
   useEffect(() => {
     fetch("http://localhost:3000/api/tasks/available")
@@ -217,7 +201,6 @@ function TaskDoPage() {
               <tr key={i}>
                 <td>{d.title}</td>
                 <td>{d.courseName}</td>
-                <td>{d.status}</td>
                 <td>
                   <button onClick={handleDeleteTask} value={d.title}>
                     удалить

@@ -7,7 +7,14 @@ function UsersListPage() {
     surname: "",
     firstName: "",
     patronymic: "",
-    courseName: "",
+    contact_info: "",
+  });
+  const [orderInfo, setOrderInfo] = useState({
+    id_users: "",
+    id_course: "",
+    group_name: "",
+    academic_year: "",
+    status:"обучается"
   });
 
   useEffect(() => {
@@ -23,27 +30,47 @@ function UsersListPage() {
       .post("http://localhost:3000/api/users/add", userInfo)
       .then((res) => {
         console.log(res.data);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => console.log(err));
-    console.log(userInfo);
+
+      axios
+      .post("http://localhost:3000/api/order/add", orderInfo)
+      .then((res) => {
+        console.log(res.data);
+        // window.location.reload();
+      })
+      .catch((err) => console.log(err));
+    console.log(orderInfo);
   };
 
-  const handleChange = (e) => {
+  const handleChangeUser = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
+    console.log(userInfo)
   };
 
-  const handleDeleteUser = (e) => {
-    let userId = e.target.value;
-    axios
-      .post("http://localhost:3000/api/users/delete", { userId })
-      .then((res) => {
-        console.log(res.data, userId);
-        window.location.reload();
-      })
-      .catch((err) => console.log(err));
+  const handleChangeOrder = (e) => {
+    const { name, value } = e.target;
+    setOrderInfo({ ...orderInfo, [name]: value });
+    console.log(orderInfo)
   };
+
+  const handleUpdate = () => {
+
+  };
+
+  console.log(data)
+  // const handleDeleteUser = (e) => {
+  //   let userId = e.target.value;
+  //   axios
+  //     .post("http://localhost:3000/api/users/delete", { userId })
+  //     .then((res) => {
+  //       console.log(res.data, userId);
+  //       window.location.reload();
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <div>
@@ -55,25 +82,31 @@ function UsersListPage() {
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
+            <th>Контактная информация</th>
             <th>Курс</th>
+            <th>Год обучения</th>
+            <th>Статус</th>
+            <th>Группа</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((d, i) => (
+          {data.map((data, i) => (
             <tr key={i}>
-              <td>{d.idusers}</td>
-              <td>{d.surname}</td>
-              <td>{d.firstName}</td>
-              <td>{d.patronymic}</td>
-              <td>{d.courseName}</td>
-              <td>
-                <button>Изменить</button>
-              </td>
-              <td>
+              <td>{data.id_users}</td>
+              <td>{data.surname}</td>
+              <td>{data.firstName}</td>
+              <td>{data.patronymic}</td>
+              <td>{data.contact_info}</td>
+              <td>{data.name_course}</td>
+              <td>{data.academic_year}</td>
+              <td>{data.status}</td>
+              <td>{data.group_name}</td>
+
+              {/* <td>
                 <button onClick={handleDeleteUser} value={d.idusers}>
                   удалить
                 </button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
@@ -84,33 +117,56 @@ function UsersListPage() {
           name="surname"
           placeholder="Фамилия"
           value={userInfo.surname}
-          onChange={handleChange}
+          onChange={handleChangeUser}
         />
         <input
           type="text"
           name="firstName"
           placeholder="Имя"
           value={userInfo.firstName}
-          onChange={handleChange}
+          onChange={handleChangeUser}
         />
         <input
           type="text"
           name="patronymic"
           placeholder="Отчество"
           value={userInfo.patronymic}
-          onChange={handleChange}
+          onChange={handleChangeUser}
+        />
+        <input
+          type="text"
+          name="contact_info"
+          placeholder="контактная информация"
+          value={userInfo.contact_info}
+          onChange={handleChangeUser}
         />
         <select
-          name="courseName"
-          value={userInfo.courseName}
-          onChange={handleChange}>
-          <option value={""}>-</option>
-          <option value={"Р-ОК-24"}>Р-ОК-24</option>
-          <option value={"Р-УК-24"}>Р-УК-24</option>
-          <option value={"Р-ИК-24"}>Р-ИК-24</option>
+          name="id_course"
+          value={orderInfo.id_course}
+          onChange={handleChangeOrder}
+        >
+          <option value={1}>Русский язык - Основной курс</option>
+          <option value={2}>Русский язык - Углублённый курс</option>
+          <option value={3}>Русский язык - Интенсивный курс</option>
         </select>
+        <input
+          type="text"
+          name="group_name"
+          placeholder="группа"
+          value={orderInfo.group_name}
+          onChange={handleChangeOrder}
+        />
+        <input
+          type="text"
+          name="academic_year"
+          placeholder="год поступления"
+          value={orderInfo.academic_year}
+          onChange={handleChangeOrder}
+        />
+
         <button type="submit">добавить</button>
       </form>
+      <button onClick={handleUpdate}>обновить</button>
     </div>
   );
 }
