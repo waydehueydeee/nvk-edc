@@ -8,13 +8,11 @@ function UsersListPage() {
     firstName: "",
     patronymic: "",
     contact_info: "",
-  });
-  const [orderInfo, setOrderInfo] = useState({
     id_users: "",
     id_course: "",
     group_name: "",
     academic_year: "",
-    status:"обучается"
+    status: "обучается",
   });
 
   useEffect(() => {
@@ -33,44 +31,13 @@ function UsersListPage() {
         // window.location.reload();
       })
       .catch((err) => console.log(err));
-
-      axios
-      .post("http://localhost:3000/api/order/add", orderInfo)
-      .then((res) => {
-        console.log(res.data);
-        // window.location.reload();
-      })
-      .catch((err) => console.log(err));
-    console.log(orderInfo);
   };
 
   const handleChangeUser = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
-    console.log(userInfo)
+    console.log(userInfo);
   };
-
-  const handleChangeOrder = (e) => {
-    const { name, value } = e.target;
-    setOrderInfo({ ...orderInfo, [name]: value });
-    console.log(orderInfo)
-  };
-
-  const handleUpdate = () => {
-
-  };
-
-  console.log(data)
-  // const handleDeleteUser = (e) => {
-  //   let userId = e.target.value;
-  //   axios
-  //     .post("http://localhost:3000/api/users/delete", { userId })
-  //     .then((res) => {
-  //       console.log(res.data, userId);
-  //       window.location.reload();
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
 
   return (
     <div>
@@ -101,12 +68,6 @@ function UsersListPage() {
               <td>{data.academic_year}</td>
               <td>{data.status}</td>
               <td>{data.group_name}</td>
-
-              {/* <td>
-                <button onClick={handleDeleteUser} value={d.idusers}>
-                  удалить
-                </button>
-              </td> */}
             </tr>
           ))}
         </tbody>
@@ -142,9 +103,8 @@ function UsersListPage() {
         />
         <select
           name="id_course"
-          value={orderInfo.id_course}
-          onChange={handleChangeOrder}
-        >
+          value={userInfo.id_course}
+          onChange={handleChangeUser}>
           <option value={1}>Русский язык - Основной курс</option>
           <option value={2}>Русский язык - Углублённый курс</option>
           <option value={3}>Русский язык - Интенсивный курс</option>
@@ -153,20 +113,19 @@ function UsersListPage() {
           type="text"
           name="group_name"
           placeholder="группа"
-          value={orderInfo.group_name}
-          onChange={handleChangeOrder}
+          value={userInfo.group_name}
+          onChange={handleChangeUser}
         />
         <input
           type="text"
           name="academic_year"
           placeholder="год поступления"
-          value={orderInfo.academic_year}
-          onChange={handleChangeOrder}
+          value={userInfo.academic_year}
+          onChange={handleChangeUser}
         />
 
         <button type="submit">добавить</button>
       </form>
-      <button onClick={handleUpdate}>обновить</button>
     </div>
   );
 }
