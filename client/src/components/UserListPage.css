@@ -97,3 +97,8 @@ input:focus::placeholder {
   border: none;
   font-size: 18px;
 }
+
+.form__button:hover {
+  cursor: pointer;
+  background-color: #b6a4d8;
+}
