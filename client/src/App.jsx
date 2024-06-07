@@ -4,10 +4,11 @@ import TaskToDoPage from "./components/TaskToDoPage";
 import UsersListPage from "./components/UsersListPage";
 import MainPage from "./components/MainPage";
 import Nav from "./components/Nav";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="main-conteiner">
       <BrowserRouter>
         <Nav />
         <Routes>

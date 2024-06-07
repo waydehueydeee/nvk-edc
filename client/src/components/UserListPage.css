@@ -1,0 +1,99 @@
+.conteiner {
+  height: 90%;
+  width: 80%;
+  padding-right: 10px;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 50px repeat(4, 1fr) 150px 70px 115px 140px 1fr;
+  /* gap: 8px; */
+  overflow: scroll;
+  max-height: 550px;
+  /* background-color: #fff; */
+  border-radius: 20px;
+}
+
+.table__header,
+.table__content {
+  display: contents; /* чтобы элементы внутри занимали место в общей сетке */
+}
+.table__header-el {
+  font-weight: 600;
+}
+
+.table__header-el,
+.table__content-el {
+  padding: 10px;
+  text-align: left;
+  background-color: #fff;
+  border-bottom: 1px solid #ebebeb;
+  border: 2px solid #f3f3f3;
+}
+
+/* ==================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  height: 250px;
+  margin-top: 25px;
+}
+.form__block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 90%;
+  background-color: #fff;
+}
+.form__input {
+  background-color: #fff;
+  width: 300px;
+  padding: 10px 20px;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #aaaaaa;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form__input:hover {
+  border-bottom: 1px solid #777777;
+}
+
+.form__input::placeholder {
+  color: #9b9b9b;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.form__select {
+  background-color: #fff;
+  width: 300px;
+  padding: 10px 20px;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #aaaaaa;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form__button {
+  background-color: #7f68ad;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 20px;
+  box-shadow: none;
+  border: none;
+  font-size: 18px;
+}
