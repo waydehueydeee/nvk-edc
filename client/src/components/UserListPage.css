@@ -6,7 +6,7 @@
 
 .table {
   display: grid;
-  grid-template-columns: 50px repeat(4, 1fr) 150px 70px 115px 140px 1fr;
+  grid-template-columns: 50px repeat(4, 1fr) 150px 70px 115px 140px 1fr 65px;
   /* gap: 8px; */
   overflow: scroll;
   max-height: 550px;
@@ -29,6 +29,24 @@
   background-color: #fff;
   border-bottom: 1px solid #ebebeb;
   border: 2px solid #f3f3f3;
+}
+
+.delete-button {
+  padding: 5px;
+  box-shadow: none;
+  border: none;
+  border-radius: 100px;
+  opacity: 70%;
+}
+
+.delete-button-icon {
+  background-color: none;
+  width: 25px;
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  opacity: 100%;
 }
 
 /* ==================================== */
@@ -61,7 +79,7 @@
   border-bottom: 1px solid #aaaaaa;
   outline: none;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .form__input:hover {
@@ -85,7 +103,7 @@ input:focus::placeholder {
   border-bottom: 1px solid #aaaaaa;
   outline: none;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .form__button {

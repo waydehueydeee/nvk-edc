@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./UserListPage.css";
+import deleteButton from "../assets/delete-button-icon.png";
 
 function UsersListPage() {
   const [data, setData] = useState([]);
@@ -33,7 +34,7 @@ function UsersListPage() {
       .post("http://localhost:3000/api/users/add", userInfo)
       .then((res) => {
         console.log(res.data);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
@@ -59,6 +60,7 @@ function UsersListPage() {
           <div className="table__header-el">Статус</div>
           <div className="table__header-el">Группа</div>
           <div className="table__header-el">Роль</div>
+          <div className="table__header-el"></div>
         </div>
 
         {data.map((data, i) => (
@@ -73,6 +75,11 @@ function UsersListPage() {
             <div className="table__content-el">{data.status}</div>
             <div className="table__content-el">{data.group_name}</div>
             <div className="table__content-el">{role_list[data.role]}</div>
+            <div className="table__content-el">
+              <button className="delete-button">
+                <img src={deleteButton} alt="" className="delete-button-icon" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -129,15 +136,23 @@ function UsersListPage() {
             <option value={2}>Русский язык - Углублённый курс</option>
             <option value={3}>Русский язык - Интенсивный курс</option>
           </select>
-          <input
+          {/* <input
             type="text"
             name="group_name"
             placeholder="группа"
             className="form__input"
             value={userInfo.group_name}
             onChange={handleChangeUser}
-          />
-
+          /> */}
+          <select
+            name="group_name"
+            className="form__select"
+            value={userInfo.group_name}
+            onChange={handleChangeUser}>
+            <option value={"РУС-ОСН-24"}>РУС-ОСН-24</option>
+            <option value={"РУС-УГЛ-24"}>РУС-УГЛ-24</option>
+            <option value={"РУС-ИНТ-24"}>РУС-ИНТ-24</option>
+          </select>
           <select
             name="role"
             className="form__select"
@@ -145,7 +160,7 @@ function UsersListPage() {
             onChange={handleChangeUser}>
             <option value={0}>Ученик</option>
             <option value={1}>Преподаватель</option>
-            <option value={2}>Админ</option>
+            {/* <option value={2}>Админ</option> */}
           </select>
         </div>
         <button type="submit" className="form__button">

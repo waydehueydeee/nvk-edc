@@ -3,10 +3,10 @@ import React, { useState } from "react";
 function TaskInputs({ id, onDelete, setValues }) {
   const [inputValues, setInputValues] = useState({
     title: "",
-    courseName: "",
-    taskDescription: "",
-    taskText: "",
-    taskAnswer: "",
+    id_course: "",
+    task_description: "",
+    task_text: "",
+    task_answer: "",
   });
 
   const handleChange = (e) => {
@@ -28,24 +28,24 @@ function TaskInputs({ id, onDelete, setValues }) {
       <span>Задание № {id}</span>
       <textarea
         type="text"
-        name="taskDescription"
+        name="task_description"
         placeholder="Описание задания"
         onChange={handleChange}
-        value={inputValues.taskDescription}
+        value={inputValues.task_description}
       />
       <textarea
         type="text"
-        name="taskText"
+        name="task_text"
         placeholder="Текст задания"
         onChange={handleChange}
-        value={inputValues.taskText}
+        value={inputValues.task_text}
       />
       <input
         type="text"
-        name="taskAnswer"
+        name="task_answer"
         placeholder="Ответ на задание"
         onChange={handleChange}
-        value={inputValues.taskAnswer}
+        value={inputValues.task_answer}
       />
 
       <button onClick={onDelete} type="button">

@@ -77,13 +77,13 @@ app.get("/tasks-list-title", (req, res) => {
 
 app.post("/api/tasks/add", (req, res) => {
   const sql =
-    "INSERT INTO tasks (`title`,`taskDescription`,`taskText`,`taskAnswer`, `id_course`) VALUES ?";
+    "INSERT INTO tasks (`title`,`task_description`,`task_text`,`task_answer`, `id_course`) VALUES ?";
   const values = req.body.tasks.map((task) => [
     task.title,
-    task.taskDescription,
-    task.taskText,
-    task.taskAnswer,
-    task.courseName,
+    task.task_description,
+    task.task_text,
+    task.task_answer,
+    task.id_course,
   ]);
   db.query(sql, [values], (err, result) => {
     if (err) {
