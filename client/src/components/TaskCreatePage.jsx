@@ -15,6 +15,10 @@ function TaskCreatePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    values.tasks.map((task) => [
+      (task.title = values.title),
+      (task.id_course = values.id_course),
+    ]);
     axios
       .post("http://localhost:3000/api/tasks/add", { tasks: values.tasks })
       .then((res) => {
@@ -36,13 +40,10 @@ function TaskCreatePage() {
   const handleDeleteTask = (taskId) => {
     const updatedTaskList = taskList.filter((task) => task !== taskId);
     setTaskList(updatedTaskList);
-
-    updatedTaskList.forEach((task, index) => {
-      if (task !== index + 1) {
-        updatedTaskList[index] = index + 1;
-      }
-    });
-    setTaskNumber(updatedTaskList.length + 1);
+    setValues((prevValues) => ({
+      ...prevValues,
+      tasks: prevValues.tasks.filter((task) => task.id !== taskId),
+    }));
   };
 
   return (

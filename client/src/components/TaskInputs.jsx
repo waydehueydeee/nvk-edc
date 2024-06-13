@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function TaskInputs({ id, onDelete, setValues }) {
   const [inputValues, setInputValues] = useState({
     title: "",
-    id_course: "",
+    id_course: 0,
     task_description: "",
     task_text: "",
     task_answer: "",
