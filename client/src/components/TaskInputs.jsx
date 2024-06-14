@@ -24,31 +24,40 @@ function TaskInputs({ id, onDelete, setValues }) {
   };
 
   return (
-    <div>
-      <span>Задание № {id}</span>
-      <textarea
-        type="text"
-        name="task_description"
-        placeholder="Описание задания"
-        onChange={handleChange}
-        value={inputValues.task_description}
-      />
-      <textarea
-        type="text"
-        name="task_text"
-        placeholder="Текст задания"
-        onChange={handleChange}
-        value={inputValues.task_text}
-      />
-      <input
-        type="text"
-        name="task_answer"
-        placeholder="Ответ на задание"
-        onChange={handleChange}
-        value={inputValues.task_answer}
-      />
-
-      <button onClick={onDelete} type="button">
+    <div className="task">
+      {/* <span>Задание № {id}</span> */}
+      <div className="hz-2">
+        <div className="hz">
+          <textarea
+            type="text"
+            name="task_description"
+            placeholder="Описание задания"
+            className="task__input-2"
+            autocomplete="off"
+            onChange={handleChange}
+            value={inputValues.task_description}
+          />
+          <textarea
+            type="text"
+            name="task_text"
+            placeholder="Текст задания"
+            className="task__input-2"
+            autocomplete="off"
+            onChange={handleChange}
+            value={inputValues.task_text}
+          />
+        </div>
+        <input
+          type="text"
+          name="task_answer"
+          placeholder="Ответ на задание"
+          className="task__input"
+          autocomplete="off"
+          onChange={handleChange}
+          value={inputValues.task_answer}
+        />
+      </div>
+      <button onClick={onDelete} type="button" className="delete">
         Удалить
       </button>
     </div>

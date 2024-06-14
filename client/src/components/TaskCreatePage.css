@@ -1,0 +1,146 @@
+* {
+  /* border: 1px rgb(84, 167, 125) solid; */
+}
+
+.container {
+  width: 1325px;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 150px;
+}
+
+.block-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  height: 90px;
+}
+
+.block-1__input {
+  background-color: #f4f4f4;
+  width: 930px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.block-1__input::placeholder {
+  color: #9b9b9b;
+}
+
+.block-1__select {
+  border-radius: 10px;
+  background-color: #d7ebcf;
+  width: 325px;
+  padding: 10px 20px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.task {
+  width: 1325px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.task__input-2 {
+  background-color: #f6f6f6;
+  width: 570px;
+  height: 200px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+  margin: 10px;
+}
+.task__input {
+  background-color: #f6f6f6;
+  width: 98%;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  resize: none;
+}
+
+.hz {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin: 10px; */
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.hz-2 {
+  background-color: #fff;
+  padding: 10px;
+  width: 90%;
+  border-radius: 20px;
+}
+
+.delete {
+  padding: 10px;
+  margin: 15px;
+  background-color: #f5d4d4;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+.delete:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}
+
+.count {
+  margin-top: 40px;
+}
+
+.button {
+  background-color: #7f68ad;
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 20px;
+  box-shadow: none;
+  border: none;
+  font-size: 18px;
+  margin-right: 20px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.green {
+  background-color: #d7ebcf;
+  color: #2d2d2d;
+}
+
+.button:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import TaskInputs from "./TaskInputs";
+import "./TaskCreatePage.css";
 
 function TaskCreatePage() {
   const navigate = useNavigate();
@@ -47,25 +48,30 @@ function TaskCreatePage() {
   };
 
   return (
-    <div>
-      <h1>Конструктор заданий</h1>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Тема работы"
-          onChange={(e) => setValues({ ...values, title: e.target.value })}
-        />
-        <select
-          onChange={(e) => setValues({ ...values, id_course: e.target.value })}>
-          <option value={0}>Курс</option>
-          <option value={1}>Руский язык - Основной курс</option>
-          <option value={2}>Руский язык - Углублённый курс</option>
-          <option value={3}>Руский язык - Интенсивный курс</option>
-        </select>
-
-        {/* временный отступ */}
-        <br />
-
+        <div className="block-1">
+          <input
+            type="text"
+            placeholder="Тема работы"
+            className="block-1__input"
+            autocomplete="off"
+            onChange={(e) => setValues({ ...values, title: e.target.value })}
+          />
+          <select
+            className="block-1__select"
+            onChange={(e) =>
+              setValues({ ...values, id_course: e.target.value })
+            }>
+            <option value={0}>Курс</option>
+            <option value={1}>Руский язык - Основной курс</option>
+            <option value={2}>Руский язык - Углублённый курс</option>
+            <option value={3}>Руский язык - Интенсивный курс</option>
+          </select>
+        </div>
+        <h2 className="count">
+          Количество созданных заданий: {taskList.length}
+        </h2>
         {taskList.map((taskId) => (
           <TaskInputs
             key={taskId}
@@ -74,10 +80,14 @@ function TaskCreatePage() {
             setValues={setValues}
           />
         ))}
-        <button type="button" onClick={handleAddTask}>
+        <button type="button" className="button green" onClick={handleAddTask}>
           добавить
         </button>
-        {taskList != 0 && <button type="submit">Отправить</button>}
+        {taskList != 0 && (
+          <button type="submit" className="button">
+            Отправить
+          </button>
+        )}
       </form>
     </div>
   );

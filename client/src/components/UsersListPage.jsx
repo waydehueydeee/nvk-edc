@@ -90,6 +90,7 @@ function UsersListPage() {
             name="surname"
             placeholder="Фамилия"
             className="form__input"
+            autocomplete="off"
             value={userInfo.surname}
             onChange={handleChangeUser}
           />
@@ -98,6 +99,7 @@ function UsersListPage() {
             name="firstName"
             placeholder="Имя"
             className="form__input"
+            autocomplete="off"
             value={userInfo.firstName}
             onChange={handleChangeUser}
           />
@@ -106,6 +108,7 @@ function UsersListPage() {
             name="patronymic"
             placeholder="Отчество"
             className="form__input"
+            autocomplete="off"
             value={userInfo.patronymic}
             onChange={handleChangeUser}
           />
@@ -114,6 +117,7 @@ function UsersListPage() {
             name="contact_info"
             placeholder="контактная информация"
             className="form__input"
+            autocomplete="off"
             value={userInfo.contact_info}
             onChange={handleChangeUser}
           />
@@ -124,6 +128,7 @@ function UsersListPage() {
             name="academic_year"
             placeholder="год поступления"
             className="form__input"
+            autocomplete="off"
             value={userInfo.academic_year}
             onChange={handleChangeUser}
           />
