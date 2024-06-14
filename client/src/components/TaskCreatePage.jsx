@@ -69,9 +69,12 @@ function TaskCreatePage() {
             <option value={3}>Руский язык - Интенсивный курс</option>
           </select>
         </div>
-        <h2 className="count">
-          Количество созданных заданий: {taskList.length}
-        </h2>
+        {taskList != 0 && (
+          <h2 className="count">
+            Количество созданных заданий: {taskList.length}
+          </h2>
+        )}
+        {taskList == 0 && <h2 className="count">Добавьте задание</h2>}
         {taskList.map((taskId) => (
           <TaskInputs
             key={taskId}
